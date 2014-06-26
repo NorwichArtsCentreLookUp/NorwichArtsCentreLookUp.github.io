@@ -58,7 +58,7 @@
     // Geotagging Code
     var flickrSet = '72157645165498143',
       apiKey = '6240841f19c9a6efe0905cd6d18daa6f',
-      photosUrl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + apiKey + '&photoset_id=' + flickrSet +'&extras=geo,url_t,description&format=json';
+      photosUrl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + apiKey + '&photoset_id=' + flickrSet +'&extras=geo,url_s,description&format=json';
  
     $( document ).ready(function() {
       $.getJSON( photosUrl + '&jsoncallback=?', function(data) {

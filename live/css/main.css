@@ -261,7 +261,6 @@ a:after {
 }
 
 .leaflet-popup-content img {
-  float: left;
-  max-height: 90px;
+  width: 100%;
   margin-right: 5px;
 }
