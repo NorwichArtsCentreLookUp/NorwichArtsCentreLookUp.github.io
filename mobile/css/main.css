@@ -23,6 +23,10 @@
 	height: 25px;
 
 
+.leaflet-popup-content {
+	height:100%;
+}
+
 }
 
 
