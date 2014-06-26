@@ -26,15 +26,10 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
 
 
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-    }
-    html, body, #map {
-      height: 100%;
-    }
-  </style>
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
 </head>
 <body>
   <div id="map"></div>
@@ -47,6 +42,9 @@
     .setView([52.63, 1.296], 16);
     L.control.locate().addTo(map);
     L.control.zoomslider().addTo(map);
+    map.featureLayer.on('click', function(e) {
+      map.panTo(e.layer.getLatLng());
+    });
 
 
  
