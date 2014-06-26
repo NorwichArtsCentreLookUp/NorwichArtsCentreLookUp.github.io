@@ -49,18 +49,17 @@
         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
         'Imagery Â© <a href="http://mapbox.com">Mapbox</a>',
       id: 'ncalookup.ik6hk0lb'
-    }).addTo(map);
+    });
+    // Routes
+    var featureLayer = L.mapbox.featureLayer()
+    .loadURL('assets/routes.geojson')
+    .addTo(map);
  
     L.control.locate().addTo(map);
     L.control.zoomslider().addTo(map);
 
 
-    // Routes
-    var runLayer = omnivore.kml('assets/routes.kml')
-    .on('ready', function() {
-        map.fitBounds(runLayer.getBounds());
-    })
-    .addTo(map);
+
  
 
     // Geotagging Code
