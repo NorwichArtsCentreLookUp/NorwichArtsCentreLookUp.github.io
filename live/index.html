@@ -80,7 +80,7 @@
             icon = new L.icon({ iconUrl: "assets/logo.png" }),
             marker = L.marker( latLng, { icon: icon } );
             marker.addTo( map ).bindPopup(
-              "<img src=\"" + photo.url_t + "\">" +
+              "<img src=\"" + photo.url_s + "\">" +
               "<h3>" + photo.title + "</h3>" + photo.description._content
             );
             if ( !viewSet ) {
