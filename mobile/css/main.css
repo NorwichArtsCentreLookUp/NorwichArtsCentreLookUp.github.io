@@ -21,12 +21,6 @@
 .leaflet-marker-icon {
 	width: 25px;
 	height: 25px;
-
-
-.leaflet-popup-content {
-	height:100%;
-}
-
 }
 
 
@@ -240,7 +234,7 @@ a:after {
 }
 
 .leaflet-popup-content {
-  height: 100px;
+  height: 100%;
 }
 
 .leaflet-popup-content img {
