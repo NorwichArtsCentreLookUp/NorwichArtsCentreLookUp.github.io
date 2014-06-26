@@ -64,13 +64,11 @@
  
     // Routes
 
-    var runLayer = omnivore.kml('/mapbox.js/assets/routes.kml')
+    var runLayer = omnivore.kml('assets/routes.kml')
     .on('ready', function() {
         map.fitBounds(runLayer.getBounds());
     })
     .addTo(map);
-
-
 
 
     // Geotagging Code
