@@ -87,7 +87,7 @@
           if ( photo.latitude == 0 )
             return;
           var latLng = new L.latLng( photo.latitude, photo.longitude ),
-            icon = new L.icon({ iconUrl: "logo.png" }),
+            icon = new L.icon({ iconUrl: "assets/logo.png" }),
             marker = L.marker( latLng, { icon: icon } );
             marker.addTo( map ).bindPopup(
               "<img src=\"" + photo.url_t + "\">" +
