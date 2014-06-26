@@ -41,14 +41,14 @@
 
 
 
-    var map = L.map('map');
+    var map = L.mapbox.map('map', 'ncalookup.ik6hk0lb')
+      .setView([52.63, 1.296], 15);
  
     L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
       minZoom: 15,
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
         'Imagery Â© <a href="http://mapbox.com">Mapbox</a>',
-      id: 'ncalookup.ik6hk0lb'
     }).addTo(map);
     // Routes
     var featureLayer = L.mapbox.featureLayer()
