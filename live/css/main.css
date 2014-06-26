@@ -256,7 +256,8 @@ a:after {
 }
 
 .leaflet-popup-content {
-  height: 100%;
+  min-height: 100px;
+  height: auto;
 }
 
 .leaflet-popup-content img {
