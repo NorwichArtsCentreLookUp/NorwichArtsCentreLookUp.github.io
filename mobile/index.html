@@ -89,7 +89,7 @@
             marker = L.marker( latLng, { icon: icon } );
             marker.addTo( map ).bindPopup(
               "<img src=\"" + photo.url_t + "\">" +
-              "<b>" + photo.title + "</b><br>" + photo.description._content 
+              "<br>" + photo.title + "</b><br>" + photo.description._content 
             );
             if ( !viewSet ) {
               // Focus on the first photo
