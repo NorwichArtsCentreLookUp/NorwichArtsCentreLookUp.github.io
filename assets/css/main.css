@@ -45,6 +45,13 @@
   }
 
 
+/* Make examples a rational size*/
+
+.examples {
+
+	max-width: 600px;
+}
+
 body {
   background-color: #f2f2f2;
     font-family: "Lato";
