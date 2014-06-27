@@ -18,11 +18,11 @@
   <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
 <![endif]-->
      <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
 
 
 <style>
@@ -55,7 +55,7 @@
             // <a href="/">home</a> 
             // <a href="/info">help</a> 
             // <a href="/submit">submit</a> 
-            // <a href="http://norwichartscentre.co.uk/">norwich arts centre</a>
+            // <a href="http://norwichartscentre.co.uk/">N.A.C.</a>
           </p>
 
         </div>
@@ -86,7 +86,7 @@
           if ( photo.latitude == 0 )
             return;
           var latLng = new L.latLng( photo.latitude, photo.longitude ),
-            icon = new L.icon({ iconUrl: "assets/logo.png" }),
+            icon = new L.icon({ iconUrl: "/assets/img/logo.png" }),
             marker = L.marker( latLng, { icon: icon } );
             marker.addTo( map ).bindPopup(
               "<img src=\"" + photo.url_s + "\">" +
