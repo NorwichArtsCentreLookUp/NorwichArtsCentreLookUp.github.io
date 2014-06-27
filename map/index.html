@@ -12,8 +12,10 @@
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-zoomslider/v0.7.0/L.Control.Zoomslider.js'></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
   <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-zoomslider/v0.7.0/L.Control.Zoomslider.css' rel='stylesheet' />
   <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
 <!--[if lt IE 9]>
   <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
 <![endif]-->
@@ -23,11 +25,8 @@
     <!-- Custom styles for this template -->
     <link href="/assets/css/main.css" rel="stylesheet">
     <link href="/assets/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/bootstrap-lightbox.min.css">
 
 <script src="/assets/js/bootstrap.js"></script>
-<script src="/assets/js/bootstrap-lightbox.js"></script>
-<script src="/assets/js/bootstrap-img-lightbox-tooltip.js"></script>
 
 <style>
   body { padding:0; }
@@ -79,11 +78,11 @@
     // Geotagging Code
     var flickrSet = '72157645165498143',
       apiKey = '6240841f19c9a6efe0905cd6d18daa6f',
-      photosUrl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + apiKey + '&photoset_id=' + flickrSet +'&extras=geo,url_s,description&format=json';
+      photosUrl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + apiKey + '&photoset_id=' + flickrSet +'&extras=geo,url_s,url_l,description&format=json';
  
     $( document ).ready(function() {
       $.getJSON( photosUrl + '&jsoncallback=?', function(data) {
-        // console.log( data );
+        console.log( data );
         var viewSet = false;
         
         $.each(data.photoset.photo, function(i,photo) {
@@ -93,7 +92,8 @@
             icon = new L.icon({ iconUrl: "/assets/img/logo.png" }),
             marker = L.marker( latLng, { icon: icon } );
             marker.addTo( map ).bindPopup(
-              "<img src=\"" + photo.url_s + "\">" +
+              "<a href=\"" + photo.url_l + "\" rel=\"lightbox\">" +
+              "<img src=\"" + photo.url_s + "\"></a>" +
               "<h3>" + photo.title + "</h3>" + photo.description._content
             );
         });
