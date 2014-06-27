@@ -27,13 +27,27 @@
 
 
 <style>
-  body { margin:0; padding:0; }
+  body { padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
 </style>
 </head>
 <body>
   <div id="map"></div>
  
+
+
+    <div class="footer">
+      <div class="container">
+        <div class="hidden-xs hidden-sm">
+        <p class="text-muted">Loop Up Trail has been developed by Norwich Arts Centre and artist Rachel Rayns as part of <a href="http://www.ynaf.org.uk" target="_blank">Young Norfolk Arts Festival</a> and <a href="http://www.norwich.gov.uk/Events/Pages/OutdoorEvents2014.aspx" target="_blank">Lord Mayor Celebrations</a>.
+        </div>
+        <div class="hidden-md hidden-lg">
+        <p class="text-muted text-right"><a href="help">Help</a> // <a href="http://norwichartscentre.co.uk/">Norwich Arts Centre</a></p>
+        </div>
+      </div>
+    </div>
+
+
   <script>
 
 
@@ -44,10 +58,7 @@
     L.control.zoomslider().addTo(map);
     map.featureLayer.on('click', function(e) {
       map.panTo(e.layer.getLatLng());
-    });
-
-
- 
+    }); 
 
     // Geotagging Code
     var flickrSet = '72157645165498143',
