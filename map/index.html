@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>Norwich Arts Centre - Look Up</title>
- 
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 
+
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
   <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -35,29 +35,29 @@
 </head>
 <body>
   <div id="map"></div>
- 
+
     <div class="footer">
       <div class="container">
         <div class="hidden-xs hidden-sm">
           <p class="text-muted">
             Look Up Trail exhibition and map, 27 June - 1 August 2014
-            // <a href="/">home</a>             
-            // <a href="/info">help</a> 
-            // <a href="/submit">contribute</a> 
+            // <a href="/">home</a>
+            // <a href="/info">help</a>
+            // <a href="/submit">contribute</a>
             // <a href="https://github.com/NorwichArtsCentreLookUp/NorwichArtsCentreLookUp.github.io">see the code</a>
             <br>
-            Developed by <a href="http://norwichartscentre.co.uk/">Norwich Arts Centre</a> 
-            and artist <a href="http://www.rachelrayns.com/">Rachel Rayns</a> 
-            as part of <a href="http://www.ynaf.org.uk" target="_blank">Young Norfolk Arts Festival</a> 
+            Developed by <a href="http://norwichartscentre.co.uk/">Norwich Arts Centre</a>
+            and artist <a href="http://www.rachelrayns.com/">Rachel Rayns</a>
+            as part of <a href="http://www.ynaf.org.uk" target="_blank">Young Norfolk Arts Festival</a>
             and <a href="http://www.norwich.gov.uk/Events/Pages/OutdoorEvents2014.aspx" target="_blank">Lord Mayor Celebration's</a>.
           </p>
         </div>
 
         <div class="hidden-md hidden-lg">
           <p class="text-muted text-right">
-            // <a href="/">home</a> 
-            // <a href="/info">help</a> 
-            // <a href="/submit">contribute</a> 
+            // <a href="/">home</a>
+            // <a href="/info">help</a>
+            // <a href="/submit">contribute</a>
             // <a href="http://norwichartscentre.co.uk/">N.A.C.</a>
           </p>
 
@@ -73,18 +73,18 @@
     L.control.zoomslider().addTo(map);
     map.featureLayer.on('click', function(e) {
       map.panTo(e.layer.getLatLng());
-    }); 
+    });
 
-    // Geotagging Code
-    var flickrSet = '72157645165498143',
+    // Trail Photos
+    var flickrTrailSet = '72157645165498143',
       apiKey = '6240841f19c9a6efe0905cd6d18daa6f',
-      photosUrl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + apiKey + '&photoset_id=' + flickrSet +'&extras=geo,url_s,url_l,description&format=json';
- 
+      photosTrailUrl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + apiKey + '&photoset_id=' + flickrTrailSet +'&extras=geo,url_s,url_l,description&format=json';
+
     $( document ).ready(function() {
-      $.getJSON( photosUrl + '&jsoncallback=?', function(data) {
+      $.getJSON( photosTrailUrl + '&jsoncallback=?', function(data) {
         console.log( data );
         var viewSet = false;
-        
+
         $.each(data.photoset.photo, function(i,photo) {
           if ( photo.latitude == 0 )
             return;
@@ -100,8 +100,33 @@
       });
     });
 
-$("img").img_lightbox_tooltip({ tooltip_show: "hover", placement: "top", title: "click to enlarged image"}) 
- 
+    // Contributer Photos
+    var flickrContSet = '72157645386012423',
+      apiKey = '6240841f19c9a6efe0905cd6d18daa6f',
+      photosContUrl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + apiKey + '&photoset_id=' + flickrContSet +'&extras=geo,url_s,url_l,description&format=json';
+
+    $( document ).ready(function() {
+      $.getJSON( photosContUrl + '&jsoncallback=?', function(data) {
+        console.log( data );
+        var viewSet = false;
+
+        $.each(data.photoset.photo, function(i,photo) {
+          if ( photo.latitude == 0 )
+            return;
+          var latLng = new L.latLng( photo.latitude, photo.longitude ),
+            icon = new L.icon({ iconUrl: "/assets/img/contributer.png" }),
+            marker = L.marker( latLng, { icon: icon } );
+            marker.addTo( map ).bindPopup(
+              "<a href=\"" + photo.url_l + "\" rel=\"lightbox\">" +
+              "<img src=\"" + photo.url_s + "\"></a>" +
+              "<h3>" + photo.title + "</h3>" + photo.description._content
+            );
+        });
+      });
+    });
+
+$("img").img_lightbox_tooltip({ tooltip_show: "hover", placement: "top", title: "click to enlarged image"})
+
   </script>
 </body>
 </html>
