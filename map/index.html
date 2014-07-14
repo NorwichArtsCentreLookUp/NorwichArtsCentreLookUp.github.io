@@ -71,7 +71,7 @@
   <script>
     var map = L.mapbox.map('map', 'ncalookup.ik6hk0lb', { zoomControl:false })
     .setView([52.63, 1.296], 16);
-    omnivore.kml('https://audioboo.fm/users/2521140/boos.kml').addTo(map);
+    omnivore.kml('/assets/boos.kml').addTo(map);
     L.control.locate().addTo(map);
     L.control.zoomslider().addTo(map);
     map.featureLayer.on('click', function(e) {

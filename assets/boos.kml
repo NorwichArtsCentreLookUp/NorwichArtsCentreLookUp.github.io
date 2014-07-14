@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+  <Document>
+    <Style id="booStyle">
+      <IconStyle>
+        <color>a1ff00ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://d15mj6e6qmt1na.cloudfront.net/assets/mapMarkerWithShadow-96df6306328261959db5c3daa8b67873.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Placemark id="place2278952">
+      <name>Pigeons in the Cow Tower by Holly Rumble and John Boursnell</name>
+      <Point>
+        <coordinates>1.30828,52.6342,0</coordinates>
+      </Point>
+      <styleUrl>#booStyle</styleUrl>
+      <description>
+        <![CDATA[            <img alt="Boo Image" src="https://d15mj6e6qmt1na.cloudfront.net/files/images/0967/1291/2445_small.jpg" style="float:left; padding: 0 3px 3px" />
+            by lookuptrail<br/>
+            <a href="http://audioboo.fm/boos/2278952-pigeons-in-the-cow-tower-by-holly-rumble-and-john-boursnell">Visit on Audioboo.fm</a>
+            <hr style="clear:both"/>
+]]>
+      </description>
+    </Placemark>
+    <Placemark id="place2260131">
+      <name>Peregrines by Holly Rumble</name>
+      <Point>
+        <coordinates>1.30167,52.631,0</coordinates>
+      </Point>
+      <styleUrl>#booStyle</styleUrl>
+      <description>
+        <![CDATA[            <img alt="Holly Rumble Cathedral Spire" src="https://d15mj6e6qmt1na.cloudfront.net/files/images/0956/9211/Holly_Rumble_Cathedral_Spire_small.jpg" style="float:left; padding: 0 3px 3px" />
+            by lookuptrail<br/>
+            <a href="http://audioboo.fm/boos/2260131-peregrines-by-holly-rumble">Visit on Audioboo.fm</a>
+            <hr style="clear:both"/>
+]]>
+      </description>
+    </Placemark>
+    <Placemark id="place2243359">
+      <name>St Peter Mancroft by Jamie Smith</name>
+      <Point>
+        <coordinates>1.29205,52.6278,0</coordinates>
+      </Point>
+      <styleUrl>#booStyle</styleUrl>
+      <description>
+        <![CDATA[            <img alt="St Peter Mancroft" class=" tall" src="https://d15mj6e6qmt1na.cloudfront.net/files/images/0948/1817/St_Peter_Mancroft_small.jpg" style="float:left; padding: 0 3px 3px" />
+            by lookuptrail<br/>
+            <a href="http://audioboo.fm/boos/2243359-st-peter-mancroft-by-jamie-smith">Visit on Audioboo.fm</a>
+            <hr style="clear:both"/>
+]]>
+      </description>
+    </Placemark>
+    <Placemark id="place2240840">
+      <name>Jarrolds Mill by Marcus Williams</name>
+      <Point>
+        <coordinates>1.30029,52.6345,0</coordinates>
+      </Point>
+      <styleUrl>#booStyle</styleUrl>
+      <description>
+        <![CDATA[            <img alt="Marcus Williams web" src="https://d15mj6e6qmt1na.cloudfront.net/files/images/0948/1834/Marcus_Williams_web_small.jpg" style="float:left; padding: 0 3px 3px" />
+            by lookuptrail<br/>
+            <a href="http://audioboo.fm/boos/2240840-jarrolds-mill-by-marcus-williams">Visit on Audioboo.fm</a>
+            <hr style="clear:both"/>
+]]>
+      </description>
+    </Placemark>
+    <Placemark id="place2223421">
+      <name>Surrey House by Lynne Williams</name>
+      <Point>
+        <coordinates>1.29375,52.6254,0</coordinates>
+      </Point>
+      <styleUrl>#booStyle</styleUrl>
+      <description>
+        <![CDATA[            <img alt="Holly Rumble Surrey Street web" src="https://d15mj6e6qmt1na.cloudfront.net/files/images/0956/9536/Holly_Rumble_Surrey_Street_web_small.jpg" style="float:left; padding: 0 3px 3px" />
+            by lookuptrail<br/>
+            <a href="http://audioboo.fm/boos/2223421-surrey-house-by-lynne-williams">Visit on Audioboo.fm</a>
+            <hr style="clear:both"/>
+]]>
+      </description>
+    </Placemark>
+  </Document>
+</kml>
