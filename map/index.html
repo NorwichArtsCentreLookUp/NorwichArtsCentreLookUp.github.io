@@ -10,6 +10,8 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css' rel='stylesheet' />
+  <script src='/assets/js/leaflet-omnivore.js'></script>
+
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-zoomslider/v0.7.0/L.Control.Zoomslider.js'></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js"></script>
@@ -69,6 +71,7 @@
   <script>
     var map = L.mapbox.map('map', 'ncalookup.ik6hk0lb', { zoomControl:false })
     .setView([52.63, 1.296], 16);
+    omnivore.kml('https://audioboo.fm/users/2521140/boos.kml').addTo(map);
     L.control.locate().addTo(map);
     L.control.zoomslider().addTo(map);
     map.featureLayer.on('click', function(e) {
