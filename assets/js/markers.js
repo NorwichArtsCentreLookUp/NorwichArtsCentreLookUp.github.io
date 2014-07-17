@@ -23,7 +23,7 @@ $(document).ready(function () {
             if (photo.latitude == 0) return;
             var latLng = new L.latLng(photo.latitude, photo.longitude),
                 icon = new L.icon({
-                    iconUrl: "http://lookuptrail.co.uk/assets/img/logo.png"
+                    iconUrl: "/assets/img/logo.png"
                 }),
                 marker = L.marker(latLng, {
                     icon: icon
@@ -72,7 +72,7 @@ $(document).ready(function () {
             if (!location) return;
             var latLng = new L.latLng(location.latitude, location.longitude),
                 icon = new L.icon({
-                    iconUrl: "http://lookuptrail.co.uk/assets/img/audio.jpg"
+                    iconUrl: "/assets/img/audio.jpg"
                 }),
                 marker = L.marker(latLng, {
                     icon: icon
