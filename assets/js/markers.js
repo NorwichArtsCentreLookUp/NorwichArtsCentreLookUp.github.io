@@ -9,9 +9,6 @@ map.featureLayer.on('click', function (e) {
     map.panTo(e.layer.getLatLng());
 });
 
-// Image enlarging
-$("img").img_lightbox_tooltip({ tooltip_show: "hover", placement: "top", title: "click to enlarged image"})
-
 // Audio player
 
 audiojs.events.ready(function() {
@@ -94,3 +91,5 @@ $(document).ready(function () {
     });
 });
 
+// Image enlarging
+$("img").img_lightbox_tooltip({ tooltip_show: "hover", placement: "top", title: "click to enlarged image"})
