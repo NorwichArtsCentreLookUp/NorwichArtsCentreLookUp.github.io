@@ -1,36 +1,39 @@
-
 // Map
-var map = L.mapbox.map('map', 'ncalookup.ik6hk0lb', { zoomControl:false })
-	.setView([52.63, 1.296], 16);
-	L.control.locate().addTo(map);
-	L.control.zoomslider().addTo(map);
-	map.featureLayer.on('click', function(e) {
-		map.panTo(e.layer.getLatLng());
-	});
+var map = L.mapbox.map('map', 'ncalookup.ik6hk0lb', {
+    zoomControl: false
+})
+    .setView([52.63, 1.296], 16);
+L.control.locate().addTo(map);
+L.control.zoomslider().addTo(map);
+map.featureLayer.on('click', function (e) {
+    map.panTo(e.layer.getLatLng());
+});
 
-// Trail Photos Markers
+// Trail Photos Markers (flickr)
 var flickrTrailSet = '72157645165498143',
-	apiKey = '6240841f19c9a6efe0905cd6d18daa6f',
-	photosTrailUrl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + apiKey + '&photoset_id=' + flickrTrailSet +'&extras=geo,url_s,url_l,description&format=json';
+    apiKey = '6240841f19c9a6efe0905cd6d18daa6f',
+    photosTrailUrl = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=' + apiKey + '&photoset_id=' + flickrTrailSet + '&extras=geo,url_s,url_l,description&format=json';
 
-$( document ).ready(function() {
-	$.getJSON( photosTrailUrl + '&jsoncallback=?', function(data) {
-		console.log( data );
-		var viewSet = false;
+$(document).ready(function () {
+    $.getJSON(photosTrailUrl + '&jsoncallback=?', function (data) {
+        console.log(data);
+        var viewSet = false;
 
-		$.each(data.photoset.photo, function(i,photo) {
-			if ( photo.latitude == 0 )
-				return;
-			var latLng = new L.latLng( photo.latitude, photo.longitude ),
-				icon = new L.icon({ iconUrl: "/assets/img/logo.png" }),
-				marker = L.marker( latLng, { icon: icon } );
-				marker.addTo( map ).bindPopup(
-					"<a href=\"" + photo.url_l + "\" rel=\"lightbox\">" +
-					"<img src=\"" + photo.url_s + "\"></a>" +
-					"<h3>" + photo.title + "</h3>" + photo.description._content
-				);
-		});
-	});
+        $.each(data.photoset.photo, function (i, photo) {
+            if (photo.latitude == 0) return;
+            var latLng = new L.latLng(photo.latitude, photo.longitude),
+                icon = new L.icon({
+                    iconUrl: "http://lookuptrail.co.uk/assets/img/logo.png"
+                }),
+                marker = L.marker(latLng, {
+                    icon: icon
+                });
+            marker.addTo(map).bindPopup(
+                "<a href=\"" + photo.url_l + "\" rel=\"lightbox\">" +
+                "<img src=\"" + photo.url_s + "\"></a>" +
+                "<h3>" + photo.title + "</h3>" + photo.description._content);
+        });
+    });
 });
 
 // Contributer Photos Markers
@@ -60,22 +63,22 @@ $( document ).ready(function() {
 
 // Audio Markers
 $(document).ready(function () {
-    // 'located' will filter down to just boos with a location
+    // also, http://api.audioboo.fm/users/2521140/audio_clips/located will filter down to just boos with a location
     $.getJSON('http://api.audioboo.fm/users/2521140/audio_clips/located.jsonp?callback=?', function (data) {
         console.log(data);
         var items = [];
         $.each(data.body.audio_clips, function (i, audio) {
-            var location=audio.location;
+            var location = audio.location;
             if (!location) return;
             var latLng = new L.latLng(location.latitude, location.longitude),
                 icon = new L.icon({
-                    iconUrl: "/img/audio.jpg"
+                    iconUrl: "http://lookuptrail.co.uk/assets/img/audio.jpg"
                 }),
                 marker = L.marker(latLng, {
                     icon: icon
                 });
             marker.addTo(map).bindPopup(
-                "<a href=\"" + audio.urls.detail + "\" rel=\"lightbox\">" +
+                "<a href=\"" + audio.urls.detail + "\">" +
                 "<img src=\"" + audio.urls.image + "\"></a>" +
                 "<h3>" + audio.title + "</h3>" + audio.description);
         });
