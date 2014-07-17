@@ -86,7 +86,8 @@ $(document).ready(function () {
             marker.addTo(map).bindPopup(
                 "<a href=\"" + audio.urls.detail + "\">" +
                 "<img src=\"" + audio.urls.image + "\"></a>" +
-                "<h3>" + audio.title + "</h3>" + audio.urls.high_mp3);
+				"<audio src="/mp3/juicy.mp3" preload="none" />" +
+                "<h3>" + audio.title + "</h3>" + audio.description);
         });
     });
 });
