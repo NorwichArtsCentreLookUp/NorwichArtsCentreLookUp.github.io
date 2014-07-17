@@ -80,6 +80,7 @@ $(document).ready(function () {
             marker.addTo(map).bindPopup(
                 "<a href=\"" + audio.urls.detail + "\">" +
                 "<img src=\"" + audio.urls.image + "\"></a>" +
+                "<br> <audio src=\"" + audio.urls.high_mp3 + "\" preload="auto" />"
                 "<h3>" + audio.title + "</h3>" + audio.description);
         });
     });
@@ -87,3 +88,6 @@ $(document).ready(function () {
 
 // Image enlarging
 $("img").img_lightbox_tooltip({ tooltip_show: "hover", placement: "top", title: "click to enlarged image"})
+
+
+
