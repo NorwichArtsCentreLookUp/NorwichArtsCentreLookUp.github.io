@@ -37,7 +37,9 @@ $(document).ready(function () {
             marker.addTo(map).bindPopup(
                 "<a href=\"" + photo.url_l + "\" rel=\"lightbox\">" +
                 "<img src=\"" + photo.url_s + "\"></a>" +
-                "<h3>" + photo.title + "</h3>" + photo.description._content);
+                "<h3>" + photo.title + "</h3>" + photo.description._content +
+                "<a href=\"" + photo.url_l + "\" rel=\"lightbox\">" +
+                "<p> Click to play </p></a>");
         });
     });
 });
