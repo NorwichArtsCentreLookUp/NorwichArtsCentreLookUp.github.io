@@ -59,38 +59,27 @@ $( document ).ready(function() {
 });
 
 // Audio Markers
-$( document ).ready(function() {
-// $( document ).ready(function()
-// jQuery detects this state of readiness for you. Code included inside
-// $( document ).ready() will only run once the page Document Object Model
-// (DOM) is ready for JavaScript code to execute
-
-	$.getJSON( 'http://api.audioboo.fm/users/2521140/audio_clips.json', function(data) {
-	// .getJSON( url [, data ] [, success ] )
-	//
-	// url
-	// A string containing the URL to which the request is sent.
-	//
-	// data
-	// A plain object or string that is sent to the server with the request.
-	//
-	// success
-	// Function( PlainObject data, String textStatus, jqXHR jqXHR )
-	// A callback function that is executed if the request succeeds.
-		var items = [];
-		$.each( data, function( title, description, latitude, longitude, detail, image ) {
-			if ( latitude == 0 )
-				return;
-			var latLng = new L.latLng( latitude, longitude ),
-			icon = new L.icon({ iconUrl: "/assets/img/audio.png" }),
-			marker = L.marker( latLng, { icon: icon } );
-			marker.addTo( map ).bindPopup(
-			  "<a href=\"" + detail + "\" rel=\"lightbox\">" +
-			  "<img src=\"" + image + "\"></a>" +
-			  "<h3>" + title + "</h3>" + description
-			);
-		});
-	});
+$(document).ready(function () {
+    // 'located' will filter down to just boos with a location
+    $.getJSON('http://api.audioboo.fm/users/2521140/audio_clips/located.jsonp?callback=?', function (data) {
+        console.log(data);
+        var items = [];
+        $.each(data.body.audio_clips, function (i, audio) {
+            var location=audio.location;
+            if (!location) return;
+            var latLng = new L.latLng(location.latitude, location.longitude),
+                icon = new L.icon({
+                    iconUrl: "http://lookuptrail.co.uk/assets/img/audio.jpg"
+                }),
+                marker = L.marker(latLng, {
+                    icon: icon
+                });
+            marker.addTo(map).bindPopup(
+                "<a href=\"" + audio.urls.detail + "\" rel=\"lightbox\">" +
+                "<img src=\"" + audio.urls.image + "\"></a>" +
+                "<h3>" + audio.title + "</h3>" + audio.description);
+        });
+    });
 });
 
 // Image enlarging
