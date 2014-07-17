@@ -88,7 +88,7 @@ $(document).ready(function () {
                 "<img src=\"" + audio.urls.image + "\"></a>" +
 				// "<audio src="/mp3/juicy.mp3" preload="none" />" +
                 "<h3>" + audio.title + "</h3>" + audio.description +
-                "<a href=\"" + audio.urls.detail + "\">" +
+                "<br><a href=\"" + audio.urls.detail + "\">" +
                 "Click to play</a>"
                 );
         });
