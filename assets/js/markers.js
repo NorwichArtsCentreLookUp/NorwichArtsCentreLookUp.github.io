@@ -11,9 +11,9 @@ map.featureLayer.on('click', function (e) {
 
 // Audio player
 
-audiojs.events.ready(function() {
-var as = audiojs.createAll();
-});
+// audiojs.events.ready(function() {
+// var as = audiojs.createAll();
+// });
 
 // Trail Photos Markers (flickr)
 var flickrTrailSet = '72157645165498143',
@@ -78,7 +78,7 @@ $(document).ready(function () {
             if (!location) return;
             var latLng = new L.latLng(location.latitude, location.longitude),
                 icon = new L.icon({
-                    iconUrl: "/assets/img/audio.jpg"
+                    iconUrl: "/assets/img/audio.png"
                 }),
                 marker = L.marker(latLng, {
                     icon: icon
@@ -86,6 +86,7 @@ $(document).ready(function () {
             marker.addTo(map).bindPopup(
                 "<a href=\"" + audio.urls.detail + "\">" +
                 "<img src=\"" + audio.urls.image + "\"></a>" +
+				// "<audio src="/mp3/juicy.mp3" preload="none" />" +
                 "<h3>" + audio.title + "</h3>" + audio.description);
         });
     });
