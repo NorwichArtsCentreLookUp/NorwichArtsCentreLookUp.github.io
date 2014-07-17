@@ -69,7 +69,7 @@ $(document).ready(function () {
             if (!location) return;
             var latLng = new L.latLng(location.latitude, location.longitude),
                 icon = new L.icon({
-                    iconUrl: "http://lookuptrail.co.uk/assets/img/audio.jpg"
+                    iconUrl: "/img/audio.jpg"
                 }),
                 marker = L.marker(latLng, {
                     icon: icon
