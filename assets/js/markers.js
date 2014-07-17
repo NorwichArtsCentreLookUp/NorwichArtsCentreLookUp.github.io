@@ -95,5 +95,3 @@ $( document ).ready(function() {
 
 // Image enlarging
 $("img").img_lightbox_tooltip({ tooltip_show: "hover", placement: "top", title: "click to enlarged image"})
-
-</script>
