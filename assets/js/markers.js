@@ -9,6 +9,15 @@ map.featureLayer.on('click', function (e) {
     map.panTo(e.layer.getLatLng());
 });
 
+// Image enlarging
+$("img").img_lightbox_tooltip({ tooltip_show: "hover", placement: "top", title: "click to enlarged image"})
+
+// Audio player
+
+audiojs.events.ready(function() {
+var as = audiojs.createAll();
+});
+
 // Trail Photos Markers (flickr)
 var flickrTrailSet = '72157645165498143',
     apiKey = '6240841f19c9a6efe0905cd6d18daa6f',
@@ -85,9 +94,4 @@ $(document).ready(function () {
         });
     });
 });
-
-// Image enlarging
-$("img").img_lightbox_tooltip({ tooltip_show: "hover", placement: "top", title: "click to enlarged image"})
-
-
 
