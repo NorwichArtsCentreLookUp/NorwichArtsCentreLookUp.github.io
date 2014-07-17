@@ -37,9 +37,7 @@ $(document).ready(function () {
             marker.addTo(map).bindPopup(
                 "<a href=\"" + photo.url_l + "\" rel=\"lightbox\">" +
                 "<img src=\"" + photo.url_s + "\"></a>" +
-                "<h3>" + photo.title + "</h3>" + photo.description._content +
-                "<a href=\"" + photo.url_l + "\" rel=\"lightbox\">" +
-                "<p> Click to play </p></a>");
+                "<h3>" + photo.title + "</h3>" + photo.description._content);
         });
     });
 });
@@ -89,7 +87,10 @@ $(document).ready(function () {
                 "<a href=\"" + audio.urls.detail + "\">" +
                 "<img src=\"" + audio.urls.image + "\"></a>" +
 				// "<audio src="/mp3/juicy.mp3" preload="none" />" +
-                "<h3>" + audio.title + "</h3>" + audio.description);
+                "<h3>" + audio.title + "</h3>" + audio.description +
+                "<a href=\"" + audio.urls.detail + "\">" +
+                "Click to play</a>"
+                );
         });
     });
 });
